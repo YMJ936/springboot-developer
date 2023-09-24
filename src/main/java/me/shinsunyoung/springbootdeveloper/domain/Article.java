@@ -14,15 +14,15 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Entity
+@Entity //엔티티로 지정
 public class Article {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //id 필드를 기본키로 지정
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //기본키 자동으로 1씩 증가
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @Column(name = "title", nullable = false)
+    @Column(name = "title", nullable = false) // 'title'이라는 not null 컬럼과 매핑
     private String title;
 
     @Column(name = "content", nullable = false)
@@ -39,7 +39,7 @@ public class Article {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Builder
+    @Builder // 빌더 패턴으로 객체 생성
     public Article(String author, String title, String content) {
         this.author = author;
         this.title = title;
