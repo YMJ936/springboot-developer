@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -12,36 +12,35 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="409046f4-f01d-4165-b27f-5b13de17ca07">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
-      <console name="Connection 1" type="STANDARD" schema="mysql" session="Main"><![CDATA[create database blog;
+    <connection id="6fe1567e-919b-40f9-8b1b-b83f8eb2299a">
+      <console name="springboot" type="STANDARD" schema="ebdb" session="Main"><![CDATA[create database blog;
+
 use blog;
 
 create table article (
-                        id bigint not null AUTO_INCREMENT,
-                        author varchar(255) not null,
-                        content varchar(255) not null,
-                        created_at timestamp,
-                        title varchar(255) not null,
-                        updated_at timestamp,
-                        primary key (id)
+    id bigint not null AUTO_INCREMENT,
+    author varchar(255) not null,
+    content varchar(255) not null,
+    title varchar(255) not null,
+    created_at timestamp,
+    updated_at timestamp,
+    primary key (id)
 );
 
 create table refresh_token (
-                                id bigint not null AUTO_INCREMENT,
-                                refresh_token varchar(255) not null,
-                                user_id bigint not null,
-                                primary key (id)
+    id bigint not null AUTO_INCREMENT,
+    refresh_token varchar(255) not null,
+    updated_at timestamp,
+    primary key (id)
 );
 
 create table users (
-                        id bigint not null AUTO_INCREMENT,
-                        created_at timestamp,
-                        email varchar(255) not null,
-                        nickname varchar(255),
-                        password varchar(255),
-                        updated_at timestamp,
-                        primary key (id)
+    id bigint not null AUTO_INCREMENT,
+    email varchar(255) not null,
+    nickname varchar(255),
+    password varchar(255),
+    updated_at timestamp,
+    primary key (id)
 );]]></console>
     </connection>
   </component>
@@ -54,15 +53,23 @@ create table users (
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
   </component>
+  <component name="DBNavigator.Project.MethodExecutionManager">
+    <method-browser />
+    <execution-history>
+      <group-entries value="true" />
+      <execution-inputs />
+    </execution-history>
+    <argument-values-cache />
+  </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="409046f4-f01d-4165-b27f-5b13de17ca07" active="true" signed="true">
+      <connection id="6fe1567e-919b-40f9-8b1b-b83f8eb2299a" active="true" signed="true">
         <database>
-          <name value="Connection" />
+          <name value="springboot" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
@@ -71,14 +78,14 @@ create table users (
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="awseb-e-jppsenq4jn-stack-awsebrdsdatabase-0g9mq4tej0rm.cvzck8d0ht2m.ap-northeast-2.rds.amazonaws.com" />
+          <host value="awseb-e-ddm7phmcrv-stack-awsebrdsdatabase-dob7zk105blw.cvzck8d0ht2m.ap-northeast-2.rds.amazonaws.com" />
           <port value="3306" />
-          <database value="mysql" />
+          <database value="ebdb" />
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
           <user value="ebroot" />
-          <deprecated-pwd value="MTIzNDU2Nzg=" />
+          <deprecated-pwd value="ZWJyb290MTIzNA==" />
         </database>
         <properties>
           <auto-commit value="false" />
