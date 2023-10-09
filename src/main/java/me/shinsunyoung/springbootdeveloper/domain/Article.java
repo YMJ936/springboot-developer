@@ -22,7 +22,7 @@ public class Article {
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @Column(name = "title", nullable = false) //'title' 이라는 not null 컬럼과 매핑
+    @Column(name = "title", nullable = false) //'title' 이라는 not null 컬럼과 매핑시킴
     private String title;
 
     @Column(name = "content", nullable = false)
