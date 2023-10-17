@@ -50,7 +50,7 @@ class BlogApiControllerTest {
     @Autowired
     BlogRepository blogRepository;
 
-    @Autowired
+    @Autowired // 빈 주입
     UserRepository userRepository;
 
     User user;
