@@ -34,15 +34,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
-@SpringBootTest
-@AutoConfigureMockMvc
+@SpringBootTest // 테스트용 어플리케이션 컨텍스트
+@AutoConfigureMockMvc // MockMvc 생성
 class BlogApiControllerTest {
 
     @Autowired
     protected MockMvc mockMvc;
 
     @Autowired
-    protected ObjectMapper objectMapper;
+    protected ObjectMapper objectMapper; // 직렬화, 역직렬화를 위한 클래스
 
     @Autowired
     private WebApplicationContext context;
@@ -55,7 +55,7 @@ class BlogApiControllerTest {
 
     User user;
 
-    @BeforeEach
+    @BeforeEach // 테스트 실행 전 실행하는 메서드
     public void mockMvcSetUp() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .build();
@@ -85,12 +85,14 @@ class BlogApiControllerTest {
         final String content = "content";
         final AddArticleRequest userRequest = new AddArticleRequest(title, content);
 
+        // 객체 JSON으로 직렬화
         final String requestBody = objectMapper.writeValueAsString(userRequest);
 
         Principal principal = Mockito.mock(Principal.class);
         Mockito.when(principal.getName()).thenReturn("username");
 
         // when
+        // 설정한 내용을 바탕으로 요청 전송
         ResultActions result = mockMvc.perform(post(url)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .principal(principal)

@@ -25,9 +25,9 @@ public class BlogViewController {
                 .stream()
                 .map(ArticleListViewResponse::new)
                 .toList();
-        model.addAttribute("articles", articles);
+        model.addAttribute("articles", articles); // 블로그 글 리스트 저장
 
-        return "articleList";
+        return "articleList"; // articleList.html라는 뷰 조회
     }
 
     @GetMapping("/articles/{id}")

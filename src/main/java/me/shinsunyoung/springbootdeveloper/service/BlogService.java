@@ -39,7 +39,7 @@ public class BlogService {
         blogRepository.delete(article);
     }
 
-    @Transactional
+    @Transactional //트랜잭션 메서드
     public Article update(long id, UpdateArticleRequest request) {
         Article article = blogRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found : " + id));
