@@ -38,7 +38,6 @@ public class BlogViewController {
         return "article";
     }
 
-
     @GetMapping("/new-article")
     public String newArticle(@RequestParam(required = false) Long id, Model model) {
         if (id == null) {
