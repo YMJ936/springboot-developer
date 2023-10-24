@@ -47,11 +47,11 @@ if (modifyButton) {
     });
 }
 
-// 생성 기능
-const createButton = document.getElementById('create-btn');
+// 등록 기능
+const createButton = document.getElementById('create-btn'); // 1.id가 create-btn인 엘리먼트
 
 if (createButton) {
-    // 등록 버튼을 클릭하면 /api/articles로 요청을 보낸다
+    // 2. 클릭 이벤트가 감지되면 생성 API 요청 -> 등록 버튼을 클릭하면 /api/articles로 요청을 보낸다
     createButton.addEventListener('click', event => {
         body = JSON.stringify({
             title: document.getElementById('title').value,
@@ -119,7 +119,8 @@ function httpRequest(method, url, body, success, fail) {
                         return res.json();
                     }
                 })
-                .then(result => { // 재발급이 성공하면 로컬 스토리지값을 새로운 액세스 토큰으로 교체
+                .then(result => {
+                    // 재발급이 성공하면 로컬 스토리지값을 새로운 액세스 토큰으로 교체
                     localStorage.setItem('access_token', result.accessToken);
                     httpRequest(method, url, body, success, fail);
                 })

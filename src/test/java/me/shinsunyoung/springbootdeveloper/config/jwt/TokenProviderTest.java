@@ -28,6 +28,7 @@ class TokenProviderTest {
     @Autowired
     private JwtProperties jwtProperties;
 
+    //1.generateToken() 검증 테스트
     @DisplayName("generateToken(): 유저 정보와 만료 기간을 전달해 토큰을 만들 수 있다.")
     @Test
     void generateToken() {
@@ -50,6 +51,7 @@ class TokenProviderTest {
         assertThat(userId).isEqualTo(testUser.getId());
     }
 
+    //2.validToken() 검증 테스트
     @DisplayName("validToken(): 만료된 토큰인 경우에 유효성 검증에 실패한다.")
     @Test
     void validToken_invalidToken() {
@@ -82,6 +84,7 @@ class TokenProviderTest {
     }
 
 
+    //3.getAuthentication() 검증 테스트
     @DisplayName("getAuthentication(): 토큰 기반으로 인증정보를 가져올 수 있다.")
     @Test
     void getAuthentication() {
@@ -99,6 +102,7 @@ class TokenProviderTest {
         assertThat(((UserDetails) authentication.getPrincipal()).getUsername()).isEqualTo(userEmail);
     }
 
+    //4.getUserId() 검증 테스트
     @DisplayName("getUserId(): 토큰으로 유저 ID를 가져올 수 있다.")
     @Test
     void getUserId() {
